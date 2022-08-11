@@ -1,0 +1,25 @@
+.categories__container {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.categories__container > button {
+  padding: 0.5em 0.45em;
+  border: none;
+  text-transform: uppercase;
+  background: #079ea3;
+  color: #fff;
+  border-radius: 0.15em;
+  box-shadow: 0 0 0.5em #123e3f27;
+  transition:
+    transform 0.5s ease,
+    background 0.25s ease,
+    box-shadow 0.5s ease;
+}
+
+.categories__container > button:hover {
+  transform: scale(1.05);
+  background: #02959b;
+  box-shadow: 0 0 1em #123e3f4f;
+}

@@ -1,0 +1,10 @@
+.home__container {
+  max-width: 85em;
+  margin-inline: auto;
+}
+
+.home__container > hr {
+  transform: scaleX(0.9);
+  border: 1px solid #ddd;
+  background: #ddd;
+}

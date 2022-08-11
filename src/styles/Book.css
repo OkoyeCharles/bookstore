@@ -1,0 +1,82 @@
+.book__container {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.25em;
+  padding: 2em;
+}
+
+.book__info {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.book__category {
+  padding-bottom: 0.5em;
+}
+
+.book__action {
+  padding-top: 1em;
+  display: flex;
+  gap: 1em;
+}
+
+.book__action > button {
+  position: relative;
+  background: none;
+  border: none;
+}
+
+.book__action > button:not(:last-child)::after {
+  position: absolute;
+  content: '';
+  width: 0.1em;
+  height: 100%;
+  background: #d3d3d3;
+  top: 0;
+  right: -0.75em;
+}
+
+.book__progress {
+  flex: 2;
+}
+
+.book__chapter {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.book__chapter > span {
+  color: #999;
+  font-size: 0.8em;
+}
+
+.book__chapter button {
+  margin-top: auto;
+  width: max-content;
+  padding: 0.5em 0.45em;
+  border: none;
+  text-transform: uppercase;
+  background: #079ea3;
+  color: #fff;
+  border-radius: 0.15em;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.book__chapter button:hover {
+  transform: scale(1.01);
+  background: #02959b;
+}
+
+@media screen and (max-width: 768px) {
+  .book__container {
+    flex-direction: column;
+  }
+}

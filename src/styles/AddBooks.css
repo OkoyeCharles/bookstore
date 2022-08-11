@@ -1,0 +1,42 @@
+.addBooks__form {
+  padding: 2em 1em;
+}
+
+.addBooks__form > * {
+  border: none;
+  display: flex;
+  gap: 1em;
+}
+
+.addBooks__form > * > input {
+  flex: 1;
+  padding: 0.5em 0.4em;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.25em;
+}
+
+.addBooks__form > * > input:focus {
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.3);
+}
+
+.addBooks__form > * > button {
+  padding: 0.5em 0.45em;
+  border: none;
+  text-transform: uppercase;
+  background: #079ea3;
+  color: #fff;
+  border-radius: 0.15em;
+  box-shadow: 0 0 0.5em #123e3f27;
+  transition:
+    transform 0.5s ease,
+    background 0.25s ease,
+    box-shadow 0.5s ease;
+}
+
+.addBooks__form > * > button:hover {
+  transform: scale(1.05);
+  background: #02959b;
+  box-shadow: 0 0 1em #123e3f4f;
+}
