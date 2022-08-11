@@ -1,9 +1,9 @@
 .nav__container {
   display: flex;
   align-items: center;
-  gap: clamp(.5em, 4vw, 1.5em);
+  gap: clamp(0.5em, 4vw, 1.5em);
   padding-right: clamp(1em, 5vw, 3em);
-  box-shadow: 0 0 .25em rgba(0, 0, 0, 0.175);
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.175);
   background: #fff;
 }
 
@@ -19,27 +19,29 @@
 
 .nav__container .nav__logo > img {
   width: 5em;
-  transform: translateY(.5em);
+  transform: translateY(0.5em);
 }
 
 .nav__container .nav__links {
   display: flex;
-  gap: clamp(.5em, 4vw, 1.5em);
+  gap: clamp(0.5em, 4vw, 1.5em);
 }
 
 .nav__container .nav__links > * {
-  font-size: clamp(.75em, 3vw, 1em);
+  font-size: clamp(0.75em, 3vw, 1em);
   text-decoration: none;
   color: #555;
 }
+
 .nav__container .nav__user {
   margin-left: auto;
   border: 1px solid;
-  padding: .5em .7em;
+  padding: 0.5em 0.7em;
   border-radius: 50%;
 }
+
 .nav__container .nav__user > * {
-  font-size: clamp(.75em, 3vw, 1.25em);
+  font-size: clamp(0.75em, 3vw, 1.25em);
   color: #079ea3;
 }
 

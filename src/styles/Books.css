@@ -1,3 +1,6 @@
 .books__container {
-  border: 0.1em solid lightcoral;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  padding: 2.5em 1em;
 }

@@ -1,8 +1,11 @@
 import React from 'react';
+import '../styles/Categories.css';
 
 function Categories() {
   return (
-    <div>Categories</div>
+    <div className="categories__container">
+      <button type="button">Check Status</button>
+    </div>
   );
 }
 

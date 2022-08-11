@@ -7,6 +7,7 @@ function Home() {
   return (
     <section className="home__container">
       <Books />
+      <hr />
       <AddBooks />
     </section>
   );
