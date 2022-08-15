@@ -20,3 +20,9 @@ export const removeBook = id => {
     }
   }
 }
+
+export const checkStatus = () => {
+  return {
+    type: actions.CHECK_STATUS
+  }
+}
