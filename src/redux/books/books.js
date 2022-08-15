@@ -1,4 +1,4 @@
-import * as actions from "../actionTypes";
+import * as actions from '../actionTypes';
 
 const books = (state = [], action) => {
   switch (action.type) {
@@ -7,13 +7,13 @@ const books = (state = [], action) => {
         ...state,
         id: action.payload.id,
         title: action.payload.title,
-        author: action.payload.author,  
-      }
+        author: action.payload.author,
+      };
     case actions.REMOVE_BOOK:
-      return state.filter(book => book.id !== action.payload.id);
+      return state.filter((book) => book.id !== action.payload.id);
     default:
       return state;
   }
-}
+};
 
 export default books;
