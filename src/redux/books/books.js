@@ -1,14 +1,16 @@
+import * as actions from "../actionTypes";
+
 const books = (state = [], action) => {
   switch (action.type) {
-    case "ADD_BOOK":
+    case actions.ADD_BOOK:
       return {
         ...state,
-        id: action.id,
-        title: action.title,
-        author: action.author,     
+        id: action.payload.id,
+        title: action.payload.title,
+        author: action.payload.author,  
       }
-    case "REMOVE_BOOK":
-      return state.filter(book => book.id !== action.id);
+    case actions.REMOVE_BOOK:
+      return state.filter(book => book.id !== action.payload.id);
     default:
       return state;
   }
