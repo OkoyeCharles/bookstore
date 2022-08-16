@@ -8,14 +8,12 @@ function Categories() {
   const categories = useSelector((state) => state.categories);
   const dispatch = useDispatch();
 
-  const handleStatusCheck = () => {
-    dispatch(checkStatus(actions.CHECK_STATUS));
-    alert(categories);
-  };
+  const handleStatusCheck = () => dispatch(checkStatus(actions.CHECK_STATUS));
 
   return (
     <div className="categories__container">
       <button type="button" onClick={handleStatusCheck}>Check Status</button>
+      <div className="categories__state">{categories}</div>
     </div>
   );
 }
