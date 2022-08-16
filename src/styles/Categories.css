@@ -1,10 +1,14 @@
 .categories__container {
   padding: 2em;
   display: flex;
+  gap: 1em;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .categories__container > button {
+  width: fit-content;
   padding: 0.5em 0.45em;
   border: none;
   text-transform: uppercase;
