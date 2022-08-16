@@ -1,9 +1,9 @@
 import * as actions from '../actionTypes';
 
-const categories = (state = [], action) => {
+const categories = (state = '', action) => {
   switch (action.type) {
     case actions.CHECK_STATUS:
-      return 'Under Construction';
+      return action.payload.message;
     default:
       return state;
   }
