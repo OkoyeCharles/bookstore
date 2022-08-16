@@ -5,11 +5,11 @@ import Book from './Book';
 import { useSelector } from 'react-redux';
 
 function Books() {
-  const [books, setBooks] = useSelector(state => state.books);
+  const books = useSelector(state => state.books);
 
   return (
     <div className="books__container">
-      {books?.map((book) => <Book title={book.title} author={book.author}/>)}
+      {books?.map((book) => <Book key={book.id} title={book.title} author={book.author}/>)}
     </div>
   );
 }
