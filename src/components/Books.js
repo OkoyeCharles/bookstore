@@ -1,10 +1,11 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/Books.css';
 import Book from './Book';
+import { useSelector } from 'react-redux';
 
 function Books() {
-  const [books, setBooks] = useState();
+  const [books, setBooks] = useSelector(state => state.books);
 
   return (
     <div className="books__container">
