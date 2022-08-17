@@ -20,4 +20,7 @@ export const removeBook = (id) => ({
 
 export const checkStatus = () => ({
   type: actions.CHECK_STATUS,
+  payload: {
+    message: 'Under Construction',
+  },
 });
