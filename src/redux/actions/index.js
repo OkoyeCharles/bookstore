@@ -3,14 +3,6 @@ import * as actions from '../actionTypes';
 
 let nextBookId = 0;
 
-// export const loadBooks = createAsyncThunk(actions.LOAD_BOOKS, async () => {
-//   try {
-//     const response = axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/m0ekECJs3bOXjlfILUsO/books');
-//     return response;
-//   } catch (err) {
-//     return err.message;
-//   }
-// });
 const convertToBookArray = (axiosdata) => Object.entries(axiosdata).map((item) => ({
   id: parseInt(item[0], 10),
   ...item[1][0],
@@ -18,7 +10,7 @@ const convertToBookArray = (axiosdata) => Object.entries(axiosdata).map((item) =
 
 export const loadBooks = async (dispatch) => {
   const response = await axios.get(
-    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/m0ekECJs3bOXjlfILUsO/books',
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0Y2s4rP2sXykAeSaLGtH/books',
   );
   // Convert Data to usable format
   const books = convertToBookArray(response.data);
@@ -35,7 +27,7 @@ export const loadBooks = async (dispatch) => {
 export const addBook = (title, author) => (dispatch) => {
   // Update store at API.
   axios.post(
-    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/m0ekECJs3bOXjlfILUsO/books',
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0Y2s4rP2sXykAeSaLGtH/books',
     {
       item_id: ++nextBookId,
       title,
@@ -56,16 +48,17 @@ export const addBook = (title, author) => (dispatch) => {
 };
 
 export const removeBook = (id) => (dispatch) => {
+  // Update store at API.
   fetch(
-    `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/m0ekECJs3bOXjlfILUsO/books/${id}`,
+    `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0Y2s4rP2sXykAeSaLGtH/books/${id}`,
     {
       method: 'DELETE',
       body: JSON.stringify({
         item_id: id,
       }),
     },
-  ).catch((err) => console.error(err));
-
+  );
+  // Dispatch event locally
   dispatch({
     type: actions.REMOVE_BOOK,
     payload: {
