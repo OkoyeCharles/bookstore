@@ -7,7 +7,7 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { loadBooks } from './redux/actions';
 
-store.dispatch(loadBooks);
+store.dispatch(loadBooks());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,5 +22,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-// m0ekECJs3bOXjlfILUsO

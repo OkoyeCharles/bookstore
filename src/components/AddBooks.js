@@ -14,7 +14,8 @@ function AddBooks() {
     const { author } = event.target.elements;
 
     if (validated(title.value) && validated(author.value)) {
-      dispatch(addBook(title.value, author.value));
+      const book = { title: title.value, author: author.value };
+      dispatch(addBook(book));
       title.value = '';
       author.value = '';
     }

@@ -1,55 +1,53 @@
-import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { v4 } from 'uuid';
 import * as actions from '../actionTypes';
 
-let nextBookId = 0;
-
 const convertToBookArray = (axiosdata) => Object.entries(axiosdata).map((item) => ({
-  id: parseInt(item[0], 10),
+  id: item[0],
   ...item[1][0],
 })) || [];
 
-export const loadBooks = async (dispatch) => {
-  const response = await axios.get(
+export const loadBooks = createAsyncThunk(actions.LOAD_BOOKS, async () => {
+  const response = await fetch(
     'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0Y2s4rP2sXykAeSaLGtH/books',
   );
+  const data = await response.json();
   // Convert Data to usable format
-  const books = convertToBookArray(response.data);
+  const books = convertToBookArray(data);
 
-  dispatch({
-    type: actions.LOAD_BOOKS,
-    payload: {
-      books,
-    },
-  });
-  nextBookId += books.length;
-};
+  return { books };
+});
 
-export const addBook = (title, author) => (dispatch) => {
-  // Update store at API.
-  axios.post(
-    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0Y2s4rP2sXykAeSaLGtH/books',
-    {
-      item_id: ++nextBookId,
+export const addBook = createAsyncThunk(
+  actions.ADD_BOOK,
+  async ({ title, author }) => {
+    const id = v4();
+    await fetch(
+      'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0Y2s4rP2sXykAeSaLGtH/books',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          item_id: id,
+          author,
+          title,
+          category: 'null',
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    return {
+      id,
       title,
       author,
       category: 'null',
-    },
-  );
-  // Dispatch event locally
-  dispatch({
-    type: actions.ADD_BOOK,
-    payload: {
-      id: ++nextBookId,
-      title,
-      author,
-      category: 'null',
-    },
-  });
-};
+    };
+  },
+);
 
-export const removeBook = (id) => (dispatch) => {
-  // Update store at API.
-  fetch(
+export const removeBook = createAsyncThunk(actions.REMOVE_BOOK, async (id) => {
+  await fetch(
     `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0Y2s4rP2sXykAeSaLGtH/books/${id}`,
     {
       method: 'DELETE',
@@ -58,14 +56,8 @@ export const removeBook = (id) => (dispatch) => {
       }),
     },
   );
-  // Dispatch event locally
-  dispatch({
-    type: actions.REMOVE_BOOK,
-    payload: {
-      id,
-    },
-  });
-};
+  return { id };
+});
 
 export const checkStatus = () => ({
   type: actions.CHECK_STATUS,
