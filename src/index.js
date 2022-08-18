@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from './redux/configureStore';
+import store from './redux/configureStore';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import { loadBooks } from './redux/actions';
 
-const store = configureStore({ reducer: rootReducer });
+store.dispatch(loadBooks());
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

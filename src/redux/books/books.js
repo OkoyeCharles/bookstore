@@ -2,7 +2,7 @@ import * as actions from '../actionTypes';
 
 const books = (state = [], action) => {
   switch (action.type) {
-    case actions.ADD_BOOK:
+    case `${actions.ADD_BOOK}/fulfilled`:
       return [
         ...state,
         {
@@ -11,8 +11,10 @@ const books = (state = [], action) => {
           author: action.payload.author,
         },
       ];
-    case actions.REMOVE_BOOK:
+    case `${actions.REMOVE_BOOK}/fulfilled`:
       return state.filter((book) => book.id !== action.payload.id);
+    case `${actions.LOAD_BOOKS}/fulfilled`:
+      return action.payload.books; // payload: { books : books[] }
     default:
       return state;
   }
