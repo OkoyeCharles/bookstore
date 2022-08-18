@@ -37,7 +37,7 @@
   padding: 0.5em 5em;
   border: none;
   text-transform: uppercase;
-  background: #079ea3;
+  background: #0290ff;
   color: #fff;
   border-radius: 0.15em;
   box-shadow: 0 0 0.5em #123e3f27;
@@ -49,7 +49,7 @@
 
 .addBooks__form > * > button:hover {
   transform: scale(1.05);
-  background: #02959b;
+  background: #0290ff;
   box-shadow: 0 0 1em #123e3f4f;
 }
 
