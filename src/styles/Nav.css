@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+.nav__container * {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .nav__container {
   display: flex;
   align-items: center;
@@ -14,6 +20,7 @@
 
 .nav__container .nav__logo > span {
   font-size: clamp(1em, 4vw, 1.75em); /* stylelint-disable-line */
+  font-weight: 700;
   color: #079ea3;
 }
 

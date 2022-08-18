@@ -18,19 +18,23 @@ function Book({ id, title, author }) {
         <div className="book__author">{author}</div>
         <div className="book__action">
           <button type="button">Comments</button>
-          <button type="button" onClick={handleRemoveBook}>Remove</button>
+          <button type="button" onClick={handleRemoveBook}>
+            Remove
+          </button>
           <button type="button">Edit</button>
         </div>
       </div>
 
       <div className="book__progress">
-        <div className="book__progressCircle">Ø</div>
-        <div className="book__progressPercent">64%</div>
-        <div className="book__progressStatus">Completed</div>
+        <div className="book__progressCircle">o</div>
+        <div>
+          <div className="book__progressPercent">64%</div>
+          <div className="book__progressStatus">Completed</div>
+        </div>
       </div>
 
       <div className="book__chapter">
-        <span>CURRENT PROGRESS</span>
+        <span>CURRENT CHAPTER</span>
         <div className="book__chapterStatus">
           Chapter&nbsp;
           <span>17</span>
