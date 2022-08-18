@@ -88,11 +88,12 @@
   background: #02959b;
   border-radius: 50%;
   height: 70%;
-  aspect-ratio: 1;
+  aspect-ratio: 1; /* stylelint-disable-line */
   overflow: hidden;
 }
 
-.book__progressCircle::after, .book__progressCircle::before {
+.book__progressCircle::after,
+.book__progressCircle::before {
   content: '';
   position: absolute;
 }
@@ -172,7 +173,7 @@
   }
 
   .book__container > * {
-    margin: none;
+    margin: 0;
   }
 
   .book__container > *::after {
