@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Roboto+Slab:wght@100;200;300;500;600;700&display=swap');
+
 .addBooks__form {
   padding: 2em 1em;
+}
+
+.addBooks__form > h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  color: #888;
+  margin-bottom: 1em;
 }
 
 .addBooks__form > * {
@@ -9,8 +18,10 @@
 }
 
 .addBooks__form > * > input {
+  font-family: 'Montserrat', sans-serif;
   flex: 1;
-  padding: 0.5em 0.4em;
+  padding: 0.8rem;
+  font-size: 1.25em;
   border: none;
   outline: none;
   box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.2);
@@ -22,10 +33,11 @@
 }
 
 .addBooks__form > * > button {
-  padding: 0.5em 0.45em;
+  font-family: 'Roboto Slab', serif;
+  padding: 0.5em 5em;
   border: none;
   text-transform: uppercase;
-  background: #079ea3;
+  background: #0290ff;
   color: #fff;
   border-radius: 0.15em;
   box-shadow: 0 0 0.5em #123e3f27;
@@ -37,6 +49,12 @@
 
 .addBooks__form > * > button:hover {
   transform: scale(1.05);
-  background: #02959b;
+  background: #0290ff;
   box-shadow: 0 0 1em #123e3f4f;
+}
+
+@media screen and (max-width: 900px) {
+  .addBooks__form > fieldset {
+    flex-direction: column;
+  }
 }

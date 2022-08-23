@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Roboto+Slab:wght@100;200;300;500;600;700&display=swap');
+
 .book__container {
+  font-family: 'Roboto Slab', serif;
   display: flex;
   justify-content: space-between;
   background: white;
@@ -7,15 +10,41 @@
   padding: 2em;
 }
 
+.book__container > * {
+  position: relative;
+  margin-right: 2em;
+}
+
+.book__container > *:not(:last-child)::after {
+  position: absolute;
+  content: '';
+  background: #d3d3d3;
+  transform: translateY(-50%);
+  top: 50%;
+  right: -1em;
+  height: 80%;
+  width: 0.05em;
+}
+
+.book__title {
+  color: #222;
+}
+
 .book__info {
-  flex: 4;
+  flex: 3;
   display: flex;
   flex-direction: column;
   gap: 0.25em;
 }
 
+.book__author {
+  font-weight: 300;
+  color: #0290ff;
+}
+
 .book__category {
   padding-bottom: 0.5em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .book__action {
@@ -28,6 +57,9 @@
   position: relative;
   background: none;
   border: none;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  color: #0290ff;
 }
 
 .book__action > button:not(:last-child)::after {
@@ -42,6 +74,56 @@
 
 .book__progress {
   flex: 2;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.book__progress > :nth-child(2) {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.book__progressCircle {
+  position: relative;
+  background: #0290ff;
+  border-radius: 50%;
+  height: 70%;
+  aspect-ratio: 1; /* stylelint-disable-line */
+  overflow: hidden;
+}
+
+.book__progressCircle::after,
+.book__progressCircle::before {
+  content: '';
+  position: absolute;
+}
+
+.book__progressCircle::before {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  background: #d3d3d3;
+}
+
+.book__progressCircle::after {
+  top: 50%;
+  left: 50%;
+  height: 85%;
+  width: 85%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: white;
+}
+
+.book__progressPercent {
+  font-size: 2.5em;
+}
+
+.book__progressStatus {
+  color: #555;
+  font-weight: 200;
 }
 
 .book__chapter {
@@ -53,16 +135,24 @@
 
 .book__chapter > span {
   color: #999;
+  font-weight: 200;
   font-size: 0.8em;
 }
 
+.book__chapterStatus {
+  font-size: 1.25em;
+  font-weight: 300;
+}
+
 .book__chapter button {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
   margin-top: auto;
   width: max-content;
-  padding: 0.5em 0.45em;
+  padding: 0.75em 2em;
   border: none;
   text-transform: uppercase;
-  background: #079ea3;
+  background: #0290ff;
   color: #fff;
   border-radius: 0.15em;
   transition:
@@ -75,8 +165,22 @@
   background: #02959b;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .book__container {
     flex-direction: column;
+    align-items: center;
+    gap: 5em;
+  }
+
+  .book__container > * {
+    margin: 0;
+  }
+
+  .book__container > *::after {
+    display: none;
+  }
+
+  .book__progressCircle {
+    height: 70px;
   }
 }
